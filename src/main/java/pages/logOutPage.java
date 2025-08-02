@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 
 import utils.WaitUtils;
 
@@ -18,12 +19,12 @@ public class logOutPage {
 	By Hamburger = By.className("bm-burger-button");
 	public By Logoutbtn = By.linkText("Logout");
 
+	@Test
 	public void logOut() {
 		WaitUtils.waitForElementVisible(driver, Hamburger, 10);
 		driver.findElement(Hamburger).click();
 		WaitUtils.waitForElementVisible(driver, Logoutbtn, 10);
 		driver.findElement(Logoutbtn).click();
-
 	}
 
 }

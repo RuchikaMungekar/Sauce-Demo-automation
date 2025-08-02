@@ -20,34 +20,34 @@ public class LoginPage {
 	private By loginBtn = By.className("submit-button");
 
 	public void Enter_username(String username) {
-		 WaitUtils.waitForElementVisible(driver, userName, 10);
-		    if (username != null) {
-		    driver.findElement(userName).sendKeys(username);
-		    } else {
-		    	System.out.println("username is null");
-		    }
+		WaitUtils.waitForElementVisible(driver, userName, 10);
+		if (username != null) {
+			driver.findElement(userName).sendKeys(username);
+		} else {
+			System.out.println("username is null");
+		}
 	}
 
 	public void login(String username, String password) {
-		
-	    WaitUtils.waitForElementVisible(driver, userName, 10);
-	    if (username != null) {
-	    driver.findElement(userName).sendKeys(username);
-	    } else {
-	    	System.out.println("username is null");
-	    }
 
-	    WaitUtils.waitForElementVisible(driver, PassWord, 10);
-	    if(password != null ) {
-	    driver.findElement(PassWord).sendKeys(password);
-	    }else {
-	    	System.out.println("Password is null");
-	    }
+		WaitUtils.waitForElementVisible(driver, userName, 10);
+		if (username != null) {
+			driver.findElement(userName).sendKeys(username);
+		} else {
+			System.out.println("username is null");
+		}
 
-	    WaitUtils.waitForElementClickable(driver, loginBtn, 10);
-	    driver.findElement(loginBtn).click();
+		WaitUtils.waitForElementVisible(driver, PassWord, 10);
+		if (password != null) {
+			driver.findElement(PassWord).sendKeys(password);
+		} else {
+			System.out.println("Password is null");
+		}
+
+		WaitUtils.waitForElementClickable(driver, loginBtn, 10);
+		driver.findElement(loginBtn).click();
 	}
-	
+
 	public String getErrorMessage() {
 		try {
 			By Error = By.cssSelector("h3[data-test='error']");
@@ -58,7 +58,6 @@ public class LoginPage {
 			return "No error message displayed";
 		}
 	}
-	
 
 	public boolean isLoginSuccessful() {
 
@@ -70,5 +69,14 @@ public class LoginPage {
 		}
 	}
 
+	public boolean isLogoutSuccessful() {
+
+		try {
+			WaitUtils.waitForURLload(driver, "", 10);
+			return true;
+		} catch (TimeoutException e) {
+			return false;
+		}
+	}
 
 }

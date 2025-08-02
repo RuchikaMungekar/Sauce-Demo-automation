@@ -30,4 +30,9 @@ public class WaitUtils {
 		wait.until((ExpectedCondition<Boolean>) webDriver -> ((JavascriptExecutor) webDriver)
 				.executeScript("return document.readyState").equals("complete"));
 	}
+
+	public static WebElement waitForElementClickable(WebDriver driver, WebElement locator, int timeout) {
+		return new WebDriverWait(driver, Duration.ofSeconds(timeout))
+				.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 }

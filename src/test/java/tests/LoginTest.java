@@ -2,7 +2,6 @@ package tests;
 
 import java.io.IOException;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
@@ -51,13 +50,15 @@ public class LoginTest {
 				logOutPage logout = new logOutPage(driver);
 				try {
 					logout.logOut();
+					Assert.assertTrue(loginData.isLogoutSuccessful(), "Expected successful login for user: " + username);
+					ExtentReportManager.logPass("Logout successful for user: " + username);
 				} catch (Exception e) {
 					System.out.println("not able to logout" + e);
-					ExtentReportManager.logFail("exception" + TestName + e);
+					ExtentReportManager.logFail("exception logout" + TestName + e);
 				}
 			}
 			break;
-
+			
 		case "locked_out_user":
 			Assert.assertFalse(loginData.isLoginSuccessful(), "[FAILED] Expected login failure for user: " + username);
 			ExtentReportManager.logFail("Login failed for user: " + TestName);
