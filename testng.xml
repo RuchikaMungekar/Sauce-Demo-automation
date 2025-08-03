@@ -3,8 +3,8 @@
 
 	<test name="LoginTests">
 		<classes>
-			<class name="tests.LoginTest" />
-			<class name="tests.LogoutTest" />
+			<class name="tests.ProductTest" />
+			<class name="tests.CheckoutTest" />
 		</classes>
 	</test>
 

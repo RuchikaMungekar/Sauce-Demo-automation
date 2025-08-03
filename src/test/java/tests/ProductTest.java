@@ -37,7 +37,7 @@ public class ProductTest {
 	@AfterSuite
 	public void tearDown() {
 		ExtentReportManager.flushReports();
-		DriverFactory.quitDriver();
+//		DriverFactory.quitDriver();
 	}
 
 }
