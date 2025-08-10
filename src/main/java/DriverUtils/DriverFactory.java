@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeTest;
 
 import extentReporter.ExtentReportManager;
 import utils.ConfigReader;
@@ -16,6 +17,7 @@ public class DriverFactory {
 	private static WebDriver driver;
 //	public static final String BaseUrl = "https://www.saucedemo.com/";
 
+	@BeforeTest
 	public static WebDriver getDriver() {
 		if (driver == null) {
 			String browser = ConfigReader.get("browser");

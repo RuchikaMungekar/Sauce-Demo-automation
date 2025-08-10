@@ -1,12 +1,14 @@
 package extentReporter;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 public class ExtentReportManager {
-	private static ExtentReports extent = ExtentReportNG.getReportObject();
+	private static ExtentReports extent = ExtentReportNG.getExtentReports();
 	private static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
 
@@ -44,7 +46,7 @@ public class ExtentReportManager {
 
 	}
 
-	@AfterTest
+	@AfterSuite
 	public static void flushReports() {
 		if (extent != null) {
 			extent.flush();
@@ -56,4 +58,8 @@ public class ExtentReportManager {
 		return extentTest.get();
 	}
 
+	@AfterMethod
+	public static void removeTest() {
+	    extentTest.remove();
+	}
 }

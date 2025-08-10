@@ -12,7 +12,7 @@ public class ScreenShotUtil {
 		try {
 			System.out.println("Taking screenshot");
 			TakesScreenshot ts = (TakesScreenshot) driver;
-			File outputDir = new File(System.getProperty("user.dir") + "test-output/ErrorScreenshot");
+			File outputDir = new File(System.getProperty("user.dir") + File.separator +"test-output/ErrorScreenshot");
 			if (outputDir.exists()) {
 				System.out.println("existing");
 			} else {

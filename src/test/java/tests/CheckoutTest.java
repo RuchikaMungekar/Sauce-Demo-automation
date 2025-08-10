@@ -28,17 +28,13 @@ public class CheckoutTest {
 //		HomePage products = new HomePage(driver);
 
 		CheckOut.opencart();
-		System.err.println("open cart");
+		System.out.println("open cart");
 		CheckOut.cartCheckout();
 		CheckOut.filldata(firstName, lastName, Zipcode);
 		CheckOut.cartContinuet();
 		CheckOut.cartFinish();
 	}
 
-	@AfterSuite
-	public void tearDown() {
-		ExtentReportManager.flushReports();
-//		DriverUtils.DriverFactory.quitDriver();
-	}
+
 
 }
