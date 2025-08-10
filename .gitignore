@@ -37,7 +37,7 @@ buildNumber.properties
 .classpath
 .project
 .settings/
-/bin/
+/bin/       
 
 # OS files
 .DS_Store
@@ -54,6 +54,3 @@ Thumbs.db
 
 # Environment/Config files
 *.env
-
-#screenshots - test reports
-/test-output/**/*.png
